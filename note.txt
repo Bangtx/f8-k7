@@ -1,0 +1,43 @@
+- reducer 
+- useReducer
+- store
+- redux
+
+- redux: 
+quản lý 1 store chung
+store chung nay tât cả các component đều có thể gọi đến được.
+- kiến trúc (architecture)
+ - event handler - dispatch
+ - action (mang theo thông tin - (type, payload))
+ - store:
+  - state: các biến được lứu trữ và quản lý bởi store
+  - reducer: cập nhât lại state
+
+redux core:
+ - khi câp nhat state : phai cap nhat cả state
+	exp: state = {count: 1, number: 1}
+	  ko được phép cập nhật state.count = 2
+				state = {...state, count: 2}
+
+ôn tâp:
+ 1 số cách chông rerender k cần thiết:
+	- useRef
+	- useMemo
+	- memo
+	- useCallback
+
+
+dung redux: 
+ khi useReducer co 2 thu can truyen vao
+	reducer
+	initValue
+
+de lay dc value o trong store thi can selector
+
+
+
+buoi sau
+chia nho reducer,
+quan ly lai action
+-> redux tool
+-> async await
