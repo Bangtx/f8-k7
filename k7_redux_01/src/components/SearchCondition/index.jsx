@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { onUpdateSearchInput } from '../../redux/action'
+import searchReducer from '../../redux/search/reducer.js'
 
 const SearchCondition = () => {
     const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const SearchCondition = () => {
         setSearchValue(e.target.value)
         // why do we use 'searchValue' variable
         // how come
-        dispatch(onUpdateSearchInput(e.target.value))
+        dispatch(searchReducer.actions.setName(e.target.value))
     }
 
     return (

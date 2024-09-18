@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { addNewSubject } from '../../redux/action'
+// import { addNewSubject } from '../../redux/action'
+import subjectReducer, {addSubject} from '../../redux/subject/reducer.js'
 
 const initialSubject = {
     id: 4, 
@@ -14,7 +15,8 @@ const SubjectForm = () => {
 
     const onClick = () => {
         // console.log('onClick', subject)
-        dispatch(addNewSubject(subject))
+        // dispatch(subjectReducer.actions.addSubject(subject))
+        dispatch(addSubject(subject))
     }
 
     const onInputName = (e) => {

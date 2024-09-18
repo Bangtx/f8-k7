@@ -1,0 +1,7 @@
+{
+  "subject": [
+    {"id": 1, "name": "database", "priority": "High"},
+    {"id": 2, "name": "web programming", "priority": "Medium"},
+    {"id": 3, "name": "AI", "priority": "Low"}
+  ]
+}

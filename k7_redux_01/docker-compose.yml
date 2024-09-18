@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: k7-redux
+    image: 'node:18-alpine'
+    working_dir: /app/k7_redux_01
+    volumes:
+      - './:/app/k7_redux_01'
+    ports:
+      - '1000:1000'
+    expose:
+      - 1000
+    command: ['npm', 'run', 'dev', '--', '--port', '1000']
