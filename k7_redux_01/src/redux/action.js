@@ -15,9 +15,17 @@ const onUpdateSearchInput = (payload) => {
     }
 }
 
+const onUpdatePriority = (payload) => {
+    return {
+        type: 'search/updatePriority',
+        payload
+    }
+}
+
 export {
     onUpdateSearchInput, 
     addNewSubject, 
     ADD_SUBJECT, 
-    SEARCH_BY_NAME
+    SEARCH_BY_NAME,
+    onUpdatePriority
 }

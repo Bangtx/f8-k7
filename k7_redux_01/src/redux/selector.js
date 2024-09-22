@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux'
-
+import {createSelector} from 'reselect'
 
 
 const getVariable = (variable) => {
@@ -16,4 +16,25 @@ const getVariable = (variable) => {
     return useSelector((state) => state[variable])
 }
 
-export { getVariable }
+const subjects = createSelector(
+    [
+        state => state.subjects,
+        state => state.search
+    ],
+    (subjects, search) => {
+        console.log(search.name, search.priority, search.name || search.priority)
+        if (search.name) {
+            return subjects.filter(subject => {
+                return subject.name.includes(search.name);
+            })
+        }
+        if (search.priority) {
+            return subjects.filter(subject => {
+                return subject.priority === search.priority;
+            })
+        }
+        return subjects
+    }
+)
+
+export { getVariable, subjects }

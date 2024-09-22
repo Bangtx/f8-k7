@@ -1,9 +1,10 @@
 import {useSelector} from 'react-redux'
-import { getVariable } from '../../redux/selector.js'
+import { getVariable, subjects as subjectsSeletor } from '../../redux/selector.js'
 
 const ListSubject = () => {
     // get count variable and show it
-    const subjects = getVariable('subjects')
+    // useSelector se handle subjects trong selector.js
+    const subjects = useSelector(subjectsSeletor)
 
     return (
         <>
