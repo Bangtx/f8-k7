@@ -18,11 +18,10 @@ const getVariable = (variable) => {
 
 const subjects = createSelector(
     [
-        state => state.subjects,
+        state => state.subjects.value,
         state => state.search
     ],
     (subjects, search) => {
-        console.log(search.name, search.priority, search.name || search.priority)
         if (search.name) {
             return subjects.filter(subject => {
                 return subject.name.includes(search.name);

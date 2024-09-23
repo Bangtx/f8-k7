@@ -1,0 +1,30 @@
+redux thunk
+
+thunk: là 1 phần của code, co thể thưc hiên delay 1 số công việc 
+-> có thể async/awit, Promise ở thunk
+thunk sẽ mang theo dispatch, getState
+thubk có thể thực hiên login đông bộ và bất đông bộ
+sẽ thuwong đc sử dung khi cân thao ác với api
+
+
+(*)
+khi minh click nut add subjct
+dispatch addSubject và luu vào store
+
+(*)
+mình cần thêm lưu newSubject vao BE (json server)
+vd subject/ post
+    body {
+        name: 'tét', priority: 'Low'
+    }
+    -> {
+        'id' :5, name: 'tét', priority: 'Low'
+    }
+
+    -> lưu vào store
+
+
+// subject init = []
+// khi web duoc khoi tao, subjects phai duoc lay tu api ve
+// khi click -> luu vao db.json
+// hien thi new subject on FE 

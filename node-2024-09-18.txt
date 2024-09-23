@@ -1,0 +1,8 @@
+redux-core
+- reuse selector
+- chia main reducer / root reducer
+
+toolkit (hau het du an thuc te deu dung)
+- sua du an sang toolkit
+
+redux-thunk (di kem voi toolkit)
