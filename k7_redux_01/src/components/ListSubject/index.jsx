@@ -1,9 +1,17 @@
 import {useSelector} from 'react-redux'
-import { getSubjects } from '../../redux/selector.js'
+import { getVariable } from '../../redux/selector.js'
 
 const ListSubject = () => {
+    const dispatch = useDispatch()
+    const isLoading = useSelector(state => state.subjects.status) === 'pending'
+    console.log('isLoading', isLoading)
+    useEffect(() => {
+        dispatch(getSubject())
+    }, [])
+
+
     // get count variable and show it
-    const subjects = useSelector(getSubjects)
+    const subjects = getVariable('subjects')
 
     return (
         <>
