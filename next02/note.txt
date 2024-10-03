@@ -1,0 +1,42 @@
+btnv: khi click vào 1 product thì sẽ đi vào trang product detail
+mong muốn là title phải là tên product
+
+
+url: http://localhost:3000/product/{id}
+
+const products = [...]
+
+export metadata = {
+    title: "f88",
+    description: "welcome to f99 center"
+}
+
+export default function ({params}) {
+    const {id} = params
+
+    const product = products.find(product => product.id == id)
+
+    return (
+        <>giao dien</>
+    )
+}
+
+"/" -> "product/1"
+<Link href="`/product/${id}`"/>
+router.push()
+router.replace
+router.back()
+....
+
+trong trưowngf hợp minh muốn 1 biến là optional
+vd id
+    sửa [id] -> [[...id]]
+
+
+// products/
+
+
+trong 1 thời điểm có 1.000.000 requests gọi đến
+-> web phải call api 1.000.000 lần
+-> tại sao ko luu ở đâu đó tren FE
+-> cache ra đời
