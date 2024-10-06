@@ -1,49 +1,64 @@
-import {TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody} from "@mui/material";
+'use client'
+import {FCommonTable, CategoryDialog} from "@/components";
+import {useState, useEffect} from "react";
+import {getMethod} from '@/utils'
 
-export default async function () {
-    const response = await fetch('http://localhost:3001/categories', {cache: 'no-store'})
-    const categories = await response.json()
+export default function () {
+    const [categories, setCategories] = useState([])
+    const [currentCategory, setCurrentCategory] = useState({
+        id: null,
+        name: '',
+        short_name: '',
+        order_num: null,
+    })
+    const [showDialog, setShowDialog] = useState(false)
 
-    function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
+    const getCategories = async () => {
+        const response = await getMethod('/categories/')
+        setCategories(response)
     }
 
-    const rows = categories
+    useEffect(() => {
+        getCategories()
+    }, [])
 
-    const columns = ['id', 'name', 'short_name', 'order_num']
+    // const columns = ['id', 'name', 'short_name', 'order_num']
+    const columns = [
+        { value: 'id', text: 'Id' },
+        { value: 'name', text: 'Tên' },
+        { value: 'short_name', text: 'Tên  Ngắn' },
+        { value: 'order_num', text: 'Vị Trí' },
+        { value: 'action', text: '' },
+    ]
+
+    const onUpdate = (row) => {
+        setCurrentCategory(row)
+        setShowDialog(true)
+    }
+
+    const onDelete = (id) => {
+        console.log(id)
+    }
+
+    const closeDialog = () => {
+        setShowDialog(false)
+    }
+
 
     return (
         <>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            {
-                                columns.map(column => <TableCell key={column}>{column}</TableCell>)
-                            }
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {
-                            rows.map((row) => {
-                                console.log(row)
-                                return (
-                                    <TableRow
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        {
-                                            columns.map(column => {
-                                                console.log(column)
-                                                return <TableCell>{row[column]}</TableCell>
-                                            })
-                                        }
-                                    </TableRow>
-                                )
-                            })
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <FCommonTable
+                columns={columns}
+                rows={categories}
+                maxWidth={800}
+                onUpdate={onUpdate}
+                onDelete={onDelete}
+            />
+            <CategoryDialog
+                show={showDialog}
+                onClose={closeDialog}
+                data={currentCategory}
+            />
         </>
     )
 }
