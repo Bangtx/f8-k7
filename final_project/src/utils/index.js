@@ -9,3 +9,5 @@ export const getMethod = async (endpoint) => {
         console.error(e)
     }
 }
+
+export * from './action'
