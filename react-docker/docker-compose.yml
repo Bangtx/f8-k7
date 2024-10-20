@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: f8-react-docker
+    image: custom-node:241009
+    volumes: ['.:/app']
+    ports:
+      - '2000:5173'
+    command: ['npm', 'run', 'dev']
+#    build:
+#      context: .
+#      dockerfile: Dockerfile

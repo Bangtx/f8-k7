@@ -1,0 +1,25 @@
+ls: liệt kê ra file / folder hien tại
+cd: di chuyển đến 1 folter nào đó
+    vd: cd etc
+        cd ..
+mkdir <ten>:  tao folder mới
+touch <ten>: tao file
+rm -rf <file/folder>: xoa file
+
+build 1 image = docker
+    - docker build . -t <ten-image>
+    - chay qua docker-compose
+        web:
+            build:
+              context: .
+              dockerfile: Dockerfile
+
+        run: docker-compose run --rm web bash
+
+khi run: thi run tạo ra container để run
+
+khi sua WORKDIR /app/index.html
+da chay docker-compose build
+image da duoc cap nhat react-docker-web (co /app/index.html)
+
+chua chay docker build . -t custom-node (chua co /app/index.html)
