@@ -41,3 +41,10 @@ chia nho reducer,
 quan ly lai action
 -> redux tool
 -> async await
+
+
+exam
+exam_detail
+question
+exam_result
+image

@@ -1,0 +1,56 @@
+create table "users" (
+    id int,
+    name text,
+    email text,
+    address text
+);
+
+insert into users (id, name, email) values (1, 'test', 'test@example.com');
+insert into users (id, name, email) values (2, 'dung', 'dung@example.com');
+insert into users (id, name, email) values (3, 'chi', 'chi@example.com');
+
+select * from users;
+
+
+create table <table_name> (
+    column_name_1 type,
+    column_name_2 type,
+    column_name_3 type,
+    column_name_4 type
+);
+
+create table <tableName> (
+    columnName1 type,
+    columnName2 type,
+    columnName3 type,
+    columnName4 type
+);
+
+insert into users (<col1>, <col2>) values (<val1>, <val2>, <val3>);
+
+
+# update data
+update <tab_name> set column_name_1 = value1,
+                       column_name_2 = value2
+where True / condition (id = 1....)
+
+
+# delete from <tab_name> where ...
+trong thực tế không được dùng lênh delete
+luôn có côt active trong bảng
+active = true -> record chua bi xoa
+active = false -> bi xoa
+
+
+# sort
+select * from <tab_name> order by <col1> desc/asc, <col2>
+
+
+# add column
+alter table <tab_name> add column <col1> <type> (default <value>);
+
+# remove column
+alter table <tab_name> drop column <col1>;
+
+# rename
+alter table users rename column <old> to <new>;

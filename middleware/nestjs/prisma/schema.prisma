@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  id         BigInt   @id @default(autoincrement())
+  name       String
+  fullName    Int
+  mail       String   @unique
+  role       String
+  password   String
+  createdAt  DateTime @default(now())
+  createdBy  Int
+  modifiedAt DateTime
+  modifiedBy Int
+  deletedAt  DateTime
+  deletedBy  Int
+  active     Boolean  @default(true)
+}
+
+model Class {
+  id         BigInt   @id @default(autoincrement())
+  name       String
+  schedule   Json
+  password   String
+  createdAt  DateTime @default(now())
+  createdBy  Int
+  modifiedAt DateTime
+  modifiedBy Int
+  deletedAt  DateTime
+  deletedBy  Int
+  active     Boolean  @default(true)
+}
+
+model ClassMember {
+  id         BigInt   @id @default(autoincrement())
+  classId    BigInt
+  memberId   BigInt
+  createdAt  DateTime @default(now())
+  createdBy  Int
+  modifiedAt DateTime
+  modifiedBy Int
+  deletedAt  DateTime
+  deletedBy  Int
+  active     Boolean  @default(true)
+}

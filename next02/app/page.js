@@ -17,7 +17,7 @@
 import {revalidateTag} from "next/cache";
 
 export default async function Home() {
-    revalidateTag('update')
+    // revalidateTag('update')
     const response = await fetch(
         'http://localhost:3001/products',
         // { next: {revalidate: 20} }
