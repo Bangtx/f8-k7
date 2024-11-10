@@ -13,7 +13,20 @@ export default class ClassService extends BaseService{
         const field = super.handleSelect();
         return {
             ...field,
-            members: true
+            members: {
+                select: {
+                    member: {
+                        select: {
+                            id: true,
+                            name: true
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    mappingOut(data) {
+        return data
     }
 }

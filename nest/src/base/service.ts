@@ -24,11 +24,35 @@ export default abstract class BaseService {
         }
     }
 
+    mappingOut(data) {
+        return data
+    }
+
     async getList() {
-        return await this.prisma[this.name].findMany({
+        const result = await this.prisma[this.name].findMany({
+            relationLoadStrategy: 'query',
             select: this.handleSelect(),
             where: this.handleFind()
         })
 
+        return result
+    }
+
+    create(data) {
+        console.log(data)
+    }
+
+    updateOne(id: number, data: Object) {
+        return this.prisma[this.name].update({
+            where: { id },
+            data
+        })
+    }
+
+    softDelete(id: number) {
+        return this.prisma[this.name].update({
+            where: { id },
+            data: { active: false }
+        })
     }
 }
