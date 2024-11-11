@@ -113,7 +113,6 @@ model ExamDetail {
 
 model Question {
   id          Int          @id @default(autoincrement())
-  content     String
   answer      String // A,B,C,D
   index       Int
   examResults ExamResult[]
