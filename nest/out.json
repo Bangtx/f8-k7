@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "name": "lap tring f8",
+  "students": [
+    {
+      "id": 1,
+      "name": "Dung",
+      "exam_results": {
+        "score": 10,
+        "correct_question": 10,
+        "failed_question": 0,
+        "detail": [
+          {
+            "id": 1,
+            "answer": "A",
+            "question": {
+              "id": 1,
+              "anwser": "A"
+            },
+            "is_correct": true
+          }
+        ]
+      }
+    }
+  ]
+}
